@@ -4,7 +4,7 @@ WORKDIR /main
 
 COPY /build-pytorch-cpu/requirements.txt /main/requirements.txt
 
-RUN pip install --no-cache-dir --upgrade -r /main/requirements.txt --index-url https://download.pytorch.org/whl/cpu/torch-2.5.1+cpu.cxx11.abi-cp39-cp39-linux_x86_64.whl
+RUN pip install --no-cache-dir --upgrade -r /main/requirements.txt --index-url https://download.pytorch.org/whl/cpu
 
 COPY /build-pytorch-cpu/app /main/app
 
