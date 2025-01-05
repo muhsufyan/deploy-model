@@ -19,11 +19,10 @@ app = FastAPI(title="Dokumentasi untuk api")
 class Text(BaseModel):
     text: str
 
-
 @app.post("/predict", tags=["inference model"], summary=["predict"])
 async def prediction(capData: Text):
     pred = classifier(capData.text)
     return {
         "predict": convert(pred[0].get("label")),
         "data": [pred]
-    }
+  }
