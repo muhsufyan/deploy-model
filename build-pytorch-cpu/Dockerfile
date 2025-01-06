@@ -4,7 +4,7 @@ WORKDIR /main
 
 COPY /build-pytorch-cpu/requirements.txt /main/requirements.txt
 
-RUN pip install --no-cache-dir --upgrade -r /main/requirements.txt --index-url https://download.pytorch.org/whl/cpu
+RUN pip install --no-cache-dir --upgrade -r /main/requirements.txt
 
 COPY /build-pytorch-cpu/app /main/app
 
