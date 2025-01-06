@@ -1,5 +1,5 @@
 --find-links https://download.pytorch.org/whl/cpu
-torch
+torch==2.5.1+cpu
 transformers
 fastapi
 uvicorn
