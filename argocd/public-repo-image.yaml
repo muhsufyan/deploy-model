@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: fastapi
+  namespace: argocd
+spec:
+  generators:
+  - list:
+      elements:
+      - cluster: local
+        url: https://kubernetes.default.svc
+        path: deploy
+  template:
+    metadata:
+      name: '{{cluster}}-application'
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/muhsufyan/deploy-model.git
+        targetRevision: main
+        path: {{path}}/pytorch-cpu/*
+      destination:
+        server: '{{url}}'
+        namespace: '{{cluster}}'
+      syncPolicy:
+        automated: {}
+        syncOptions:
+          - CreateNamespace=true
